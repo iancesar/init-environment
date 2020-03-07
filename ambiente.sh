@@ -17,7 +17,10 @@ apt-get install -y wget
 
 echo "Instalando OpenJDK 8" 
 
+apt-get remove openjdk*
+apt-get remove --auto-remove openjdk*
 apt-get purge openjdk*
+apt-get purge --auto-remove openjdk*
 
 add-apt-repository ppa:openjdk-r/ppa
 apt-get update
