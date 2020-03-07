@@ -9,28 +9,28 @@ mkdir -p /home/ian/Dev/Java /home/ian/Dev/Node /home/ian/Dev/Docker /home/ian/De
 cd /home/ian/init-envoriment
 
 echo "Atualizando os repositórios"
-apt-get update
+sudo apt-get update
 
 echo "Instalando Curl e Wget"
-apt-get install -y curl
-apt-get install -y wget
+sudo apt-get install curl -y
+sudo apt-get install wget -y
 
 
 echo "Instalando OpenJDK 8" 
 
-apt-get remove openjdk*
-apt-get remove --auto-remove openjdk*
-apt-get purge openjdk*
-apt-get purge --auto-remove openjdk*
+sudo apt-get remove openjdk*
+sudo apt-get remove --auto-remove openjdk*
+sudo apt-get purge openjdk*
+sudo apt-get purge --auto-remove openjdk*
 
-add-apt-repository ppa:openjdk-r/ppa
-apt-get update
-apt-get install -y openjdk-8-jdk
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk -y
 
 echo "Instalando Google Chrome"
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt-get install -y ./google-chrome-stable_current_amd64.deb
+sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
 
 echo "Instalando Postman"
 
@@ -54,19 +54,19 @@ EOF
 echo "Instalando VS Code"
 
 wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
-apt install -y ./vscode.deb
+apt install ./vscode.deb -y
 
 echo "Instalando SUBLIME"
 
 echo "deb https://download.sublimetext.com/ apt/stable/" |  tee /etc/apt/sources.list.d/sublime-text.list
 echo "deb https://download.sublimetext.com/ apt/dev/" |  tee /etc/apt/sources.list.d/sublime-text.list
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg |  apt-key add -
-apt-get update
-apt-get install -y sublime-text
+sudo apt-get update
+sudo apt-get install sublime-text -y
 
 
 echo "Instalando GIT"
-apt install -y git
+apt install git -y
 
 echo "Instalando Git Ahead"
 wget "https://github.com/gitahead/gitahead/releases/download/v2.6.1/GitAhead-2.6.1.sh" -O gitahead.sh
@@ -74,17 +74,17 @@ sh gitahead.sh
 
 echo "Instalando DBeaver"
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O DBeaver.deb
-apt install -y ./DBeaver.deb
+apt install ./DBeaver.deb -y
 
 echo "Instalando Docker e Docker Compose"
-apt-get update
-apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
 cat /etc/apt/sources.list.d/additional-repositories.list 
 deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
-apt-get update
-apt-get -y  install docker-ce docker-compose
+sudo apt-get update
+sudo apt-get install docker-ce docker-compose -y
 
 gpasswd -a $USER docker
 
@@ -93,6 +93,6 @@ wget https://download.springsource.com/release/STS4/4.5.1.RELEASE/dist/e4.14/spr
 tar -xvzf STS.tar.gz -C /home/ian/Dev/Java
 
 echo "Instalando o Maven"
-apt-get install -y maven
+sudo apt-get install maven -y
 
 reboot
