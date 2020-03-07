@@ -2,10 +2,11 @@
 
 #VSCODE Extensions 51a22222ed19f23e57b7fd122116c7d3
 
-cd /tmp
 
 echo "Criando diretórios"
 mkdir -p /home/ian/Dev/Java /home/ian/Dev/Node /home/ian/Dev/Docker /home/ian/Dev/ReactNative /home/ian/Dev/Flutter
+
+cd /home/ian/init-envoriment
 
 echo "Atualizando os repositórios"
 apt-get update
@@ -76,28 +77,16 @@ wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O DBeaver.deb
 apt install -y ./DBeaver.deb
 
 echo "Instalando Docker e Docker Compose"
-apt remove -y docker docker-engine docker.io containerd runc
+apt-get update
+apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+cat /etc/apt/sources.list.d/additional-repositories.list 
+deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+apt-get update
+apt-get -y  install docker-ce docker-compose
 
-apt update
-
-apt-get install -y \
-apt-transport-https \
-ca-certificates \
-curl \
-gnupg-agent \
-software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-apt-key fingerprint 0EBFCD88
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu
- bionic stable"
-apt update
-apt install -y docker-ce docker-ce-cli containerd.io
-
-gpasswd -a ian docker
-
-curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+gpasswd -a $USER docker
 
 echo "Instalando o STS"
 wget https://download.springsource.com/release/STS4/4.5.1.RELEASE/dist/e4.14/spring-tool-suite-4-4.5.1.RELEASE-e4.14.0-linux.gtk.x86_64.tar.gz -O STS.tar.gz
