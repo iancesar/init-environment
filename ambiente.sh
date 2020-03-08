@@ -4,7 +4,7 @@
 
 
 echo "Criando diretórios"
-mkdir -p /home/ian/Dev/Java /home/ian/Dev/Node /home/ian/Dev/Docker /home/ian/Dev/ReactNative /home/ian/Dev/Flutter
+mkdir -p /home/ian/init-envoriment /home/ian/Dev/Java /home/ian/Dev/Node /home/ian/Dev/Docker /home/ian/Dev/ReactNative /home/ian/Dev/Flutter
 
 cd /home/ian/init-envoriment
 
@@ -37,24 +37,11 @@ echo "Instalando Postman"
 wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
 tar -xvzf postman-linux-x64.tar.gz -C /opt
 ln -s /opt/Postman/Postman /usr/bin/postman
-cat << EOF > ~/.local/share/applications/postman2.desktop
-[Desktop Entry]
-Name=Postman
-GenericName=API Client
-X-GNOME-FullName=Postman API Client
-Comment=Make and view REST API calls and responses
-Keywords=api;
-Exec=/opt/Postman/Postman
-Terminal=false
-Type=Application
-Icon=/opt/Postman/app/resources/app/assets/icon.png
-Categories=Development;Utilities;
-EOF
 
 echo "Instalando VS Code"
 
 wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb
-apt install ./vscode.deb -y
+sudo apt install ./vscode.deb -y
 
 echo "Instalando SUBLIME"
 
@@ -66,7 +53,7 @@ sudo apt-get install sublime-text -y
 
 
 echo "Instalando GIT"
-apt install git -y
+sudo apt install git -y
 
 echo "Instalando Git Ahead"
 wget "https://github.com/gitahead/gitahead/releases/download/v2.6.1/GitAhead-2.6.1.sh" -O gitahead.sh
@@ -74,7 +61,7 @@ sh gitahead.sh
 
 echo "Instalando DBeaver"
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O DBeaver.deb
-apt install ./DBeaver.deb -y
+sudo apt install ./DBeaver.deb -y
 
 echo "Instalando o STS"
 wget https://download.springsource.com/release/STS4/4.5.1.RELEASE/dist/e4.14/spring-tool-suite-4-4.5.1.RELEASE-e4.14.0-linux.gtk.x86_64.tar.gz -O STS.tar.gz
@@ -82,6 +69,10 @@ tar -xvzf STS.tar.gz -C /home/ian/Dev/Java
 
 echo "Instalando o Maven"
 sudo apt-get install maven -y
+
+echo "Compass"
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.20.5_amd64.deb -O compass.deb
+sudo apt install ./compass.deb -y
 
 echo "Instalando o NVM"
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -103,7 +94,40 @@ echo "Instalando o Quasar"
 yarn global add @quasar/cli
 
 echo "Instalando o Android Studio"
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 -y
 wget https://dl.google.com/dl/android/studio/ide-zips/3.6.1.0/android-studio-ide-192.6241897-linux.tar.gz?hl=pt-br -O android-studio.tar.gz
 tar -xvzf android-studio.tar.gz -C /home/ian/Dev
+
+echo 'Criando atalhos'
+sudo su
+echo 'Postman'
+cat << EOF > /usr/share/applications/postman.desktop
+[Desktop Entry]
+Name=Postman
+GenericName=API Client
+X-GNOME-FullName=Postman API Client
+Comment=Make and view REST API calls and responses
+Keywords=api;
+Exec=/opt/Postman/Postman
+Terminal=false
+Type=Application
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Categories=Development;Utilities;
+EOF
+
+echo 'STS'
+cat << EOF > /usr/share/applications/sts.desktop
+[Desktop Entry]
+Name=Spring Tool Suite
+GenericName=STS
+X-GNOME-FullName=Spring Tool Suite
+Comment=Spring Tool Suite
+Keywords=dev;
+Exec=/home/ian/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4
+Terminal=false
+Type=Application
+Icon=/home/ian/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4/icon.xpm
+Categories=Development;Utilities;
+EOF
+
 reboot
