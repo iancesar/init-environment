@@ -1,1 +1,1 @@
-# init-envoriment
+# init-environment

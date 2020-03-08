@@ -122,7 +122,7 @@ echo 'STS'
 cat << EOF > /usr/share/applications/sts.desktop
 [Desktop Entry]
 Name=Spring Tool Suite
-GenericName=STS
+GenericName=STS 
 X-GNOME-FullName=Spring Tool Suite
 Comment=Spring Tool Suite
 Keywords=dev;
