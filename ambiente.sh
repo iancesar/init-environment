@@ -81,7 +81,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 . ~/.profile
 . ~/.bashrc
 
-nvm install 12.16.1
+nvm install v12.16.1
 
 . ~/.nvm/nvm.sh
 . ~/.profile
@@ -89,6 +89,9 @@ nvm install 12.16.1
 
 echo "Instalando o YARN"
 npm install yarn
+
+echo "Instalando o Vue Cli"
+yarn global add @vue/cli
 
 echo "Instalando o Quasar"
 yarn global add @quasar/cli
