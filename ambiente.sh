@@ -92,7 +92,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 echo -e "\ndeb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" | sudo tee -a /etc/apt/sources.list
 
 sudo apt-get update
-sudo apt-get install docker-ce-cli -y
+sudo apt-get install docker.io -y
 sudo apt-get autoremove -y
 
 # https://docs.docker.com/compose/install/
@@ -132,4 +132,8 @@ npm install yarn
 echo "Instalando o Quasar"
 yarn global add @quasar/cli
 
+echo "Instalando o Android Studio"
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+wget https://dl.google.com/dl/android/studio/ide-zips/3.6.1.0/android-studio-ide-192.6241897-linux.tar.gz?hl=pt-br -O android-studio.tar.gz
+tar -xvzf android-studio.tar.gz -C /home/ian/Dev
 reboot
