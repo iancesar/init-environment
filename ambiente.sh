@@ -123,10 +123,10 @@ GenericName=STS
 X-GNOME-FullName=Spring Tool Suite
 Comment=Spring Tool Suite
 Keywords=dev;
-Exec=/home/ian/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4
+Exec=/home/$USER/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4
 Terminal=false
 Type=Application
-Icon=/home/ian/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4/icon.xpm
+Icon=/home/$USER/Dev/Java/sts-4.5.1.RELEASE/SpringToolSuite4/icon.xpm
 Categories=Development;Utilities;
 EOF
 
