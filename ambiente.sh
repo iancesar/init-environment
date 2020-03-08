@@ -4,9 +4,9 @@
 
 
 echo "Criando diretórios"
-mkdir -p /home/ian/init-envoriment /home/ian/Dev/Java /home/ian/Dev/Node /home/ian/Dev/Docker /home/ian/Dev/ReactNative /home/ian/Dev/Flutter
+mkdir -p /home/$USER/init-envoriment /home/$USER/Dev/Java /home/$USER/Dev/Node /home/$USER/Dev/Docker /home/$USER/Dev/ReactNative /home/$USER/Dev/Flutter
 
-cd /home/ian/init-envoriment
+cd /home/$USER/init-envoriment
 
 echo "Atualizando os repositórios"
 sudo apt-get update
@@ -65,7 +65,7 @@ sudo apt install ./DBeaver.deb -y
 
 echo "Instalando o STS"
 wget https://download.springsource.com/release/STS4/4.5.1.RELEASE/dist/e4.14/spring-tool-suite-4-4.5.1.RELEASE-e4.14.0-linux.gtk.x86_64.tar.gz -O STS.tar.gz
-tar -xvzf STS.tar.gz -C /home/ian/Dev/Java
+tar -xvzf STS.tar.gz -C /home/$USER/Dev/Java
 
 echo "Instalando o Maven"
 sudo apt-get install maven -y
@@ -96,7 +96,7 @@ yarn global add @quasar/cli
 echo "Instalando o Android Studio"
 sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 -y
 wget https://dl.google.com/dl/android/studio/ide-zips/3.6.1.0/android-studio-ide-192.6241897-linux.tar.gz?hl=pt-br -O android-studio.tar.gz
-tar -xvzf android-studio.tar.gz -C /home/ian/Dev
+tar -xvzf android-studio.tar.gz -C /home/$USER/Dev
 
 echo 'Criando atalhos'
 sudo su
